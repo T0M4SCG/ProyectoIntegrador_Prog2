@@ -5,8 +5,11 @@ let main = {
     index:function(req,res) {
         return res.render("index")
     },
-    products: function (req,res) {
-      return  res.render("products",{data: data.productos, comentarios:data.comentarios})
+    register: function (req,res) {
+      return res.render("register")
+    },
+    login: function (req,res) {
+      return res.render("login")
     }
 }
 
