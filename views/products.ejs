@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap Grid Stylesheet -->
+    <link rel="stylesheet" href="../stylesheets/bootstrap-grid.min.css">
+	<!-- Own Stylesheet -->
+	<link rel="stylesheet" href="../stylesheets/app.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Header -->
+    <%- include("./partials/header") %>
+    <!-- Body -->
+    <div style="display: flex;justify-content: flex-start; flex-wrap: wrap;">
+    <% for( let i = 0; i < data.length; i++ ) { %>
+        <% let info = data[i] %>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <section class="product-box">
+                <a href="product.html">
+                    <figure class="product-box_image">
+                        <img src="<%= info.img_producto %>" alt="<%= info.nombre_producto %>">
+                    </figure>
+                    <article class="product-box_data">
+                        <h2><%= info.nombre_producto %></h2>
+                        <p><%= info.descripcion %></p>
+                        <p><%= info.f_carga %></p>
+                        <p>Comentarios: <%= comentarios.length %></p>
+                    </article>
+                </a>
+            </section>
+        </div>
+    <% } %></div>
+    <!-- Footer -->
+    <%- include("./partials/footer") %>
+</body>
+</html>
