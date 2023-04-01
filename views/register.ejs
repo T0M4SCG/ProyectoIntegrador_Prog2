@@ -21,14 +21,17 @@
 	<%- include("./partials/header") %>
 	<!-- /Header -->
 	<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario de registro. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
-
-
+	    <section class="formulario">
+			<h4>Tus datos</h4>
+			<h6>Validá tus datos para que nadie pueda ingresar o crear una cuenta a tu nombre.</h6>
+			<input class="controles" type="email" placeholder="Ingrese su Correo"> <br>
+			<input class="controles" type="text" placeholder="Ingrese su Nombre"> <br>
+			<input class="controles" ype="password" placeholder="Ingrese su Contraseña" > <br>
+			<input class="controles" type="number" placeholder="Numero de Documento"><br>
+			<input class="controles" type="date" >  <br>
+			<input class = 'botonFormulario' type="submit" value="Registrar">
+			<p><a href="">Ya tengo cuenta</a></p>
+		</section>
 	<!-- footer -->
     <%- include("./partials/footer") %>
 	<!-- /footer -->
