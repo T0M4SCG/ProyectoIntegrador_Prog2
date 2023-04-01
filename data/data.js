@@ -81,40 +81,55 @@ let data = {
     ],
     comentarios:[
         {
-            nombre_usuario:"",
-            texto_comentario:"",
-            img_perfil:""
+            nombre_usuario:"pepe",
+            texto_comentario:"Me encanto el producto",
+            img_perfil:"/images/users/default-image.png"
         },
         {
-            nombre_usuario:"",
-            texto_comentario:"",
-            img_perfil:""
+            nombre_usuario:"pepe",
+            texto_comentario:"Me encanto el producto",
+            img_perfil:"/images/users/default-image.png"
         },
         {
-            nombre_usuario:"",
-            texto_comentario:"",
-            img_perfil:""
+            nombre_usuario:"pepe",
+            texto_comentario:"Me encanto el producto",
+            img_perfil:"/images/users/default-image.png"
         },
         {
-            nombre_usuario:"",
-            texto_comentario:"",
-            img_perfil:""
+            nombre_usuario:"pepe",
+            texto_comentario:"Me encanto el producto",
+            img_perfil:"/images/users/default-image.png"
         },
         {
-            nombre_usuario:"",
-            texto_comentario:"",
-            img_perfil:""
+            nombre_usuario:"pepe",
+            texto_comentario:"Me encanto el producto",
+            img_perfil:"/images/users/default-image.png"
         },
         {
-            nombre_usuario:"",
-            texto_comentario:"",
-            img_perfil:""
+            nombre_usuario:"pepe",
+            texto_comentario:"Me encanto el producto",
+            img_perfil:"/images/users/default-image.png"
         },
         {
-            nombre_usuario:"",
-            texto_comentario:"",
-            img_perfil:""
+            nombre_usuario:"pepe",
+            texto_comentario:"Me encanto el producto",
+            img_perfil:"/images/users/default-image.png"
         },
+        {
+            nombre_usuario:"pepe",
+            texto_comentario:"Me encanto el producto",
+            img_perfil:"/images/users/default-image.png"
+        },
+        {
+            nombre_usuario:"pepe",
+            texto_comentario:"Me encanto el producto",
+            img_perfil:"/images/users/default-image.png"
+        },
+        {
+            nombre_usuario:"pepe",
+            texto_comentario:"Me encanto el producto",
+            img_perfil:"/images/users/default-image.png"
+        }
     ]
 }
 
