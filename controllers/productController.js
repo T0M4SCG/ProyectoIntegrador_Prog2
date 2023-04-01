@@ -12,7 +12,14 @@ let product = {
             }
         }
             return res.send("No existe el producto buscado")
-    }}
+    },
+    add:function (req,res) {
+        return res.render("product-add",{data: data.usuarios})
+    },
+    results:function (req,res) {
+        return res.render("search-results")
+    }
+}
 
 
 module.exports = product;
