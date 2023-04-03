@@ -81,12 +81,12 @@ let data = {
     ],
     comentarios:[
         {
-            nombre_usuario:"pepe",
+            nombre_usuario:"Pepe",
             texto_comentario:"Me encanto el producto",
             img_perfil:"/images/users/default-image.png"
         },
         {
-            nombre_usuario:"pepe",
+            nombre_usuario:"Antonio_boque",
             texto_comentario:"Me encanto el producto",
             img_perfil:"/images/users/default-image.png"
         },
