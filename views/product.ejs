@@ -22,9 +22,6 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= data.nombre_producto %></h2> 
-			<p class="product-detail-description">
-				<a href="product-add.html">Editar</a>
-			</p>
 		</div>
 		<div class="product-detail">
 			<div class="row">
@@ -34,42 +31,17 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<article>
-							<img src="<%= comentarios[0].img_perfil %>" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="profile.html"><%= comentarios[0].nombre_usuario %> </a> </strong><%= comentarios[0].texto_comentario %></p>
-							</div>
-						</article>
-						<article>
-							<img src="<%= comentarios[1].img_perfil %>" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="profile.html"><%= comentarios[1].nombre_usuario %> </a> </strong><%= comentarios[1].texto_comentario %></p>
-							</div>
-						</article>
-						<article>
-							<img src="<%= comentarios[2].img_perfil %>" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="profile.html"><%= comentarios[2].nombre_usuario %> </a> </strong><%= comentarios[2].texto_comentario %></p>
-							</div>
-						</article>
-						<article>
-							<img src="<%= comentarios[3].img_perfil %>" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="profile.html"><%= comentarios[3].nombre_usuario %> </a> </strong><%= comentarios[3].texto_comentario %></p>
-							</div>
-						</article>
-						<article>
-							<img src="<%= comentarios[4].img_perfil %>" alt="">
-							<div class="data">
-								<p class="user">
-								<strong> <a href="profile.html"><%= comentarios[4].nombre_usuario %> </a> </strong><%= comentarios[4].texto_comentario %></p>
-							</div>
-						</article>
-
+						<% for( let i = 0; i < 5; i++ ) { %>
+						
+							<article>
+								<img src="<%= comentarios[i].img_perfil %>" alt="">
+								<div class="data">
+									<p class="user">
+										<strong> <a href="http://localhost:3000/profile"><%= comentarios[i].nombre_usuario %> </a> </strong><%= comentarios[0].texto_comentario %></p>
+									</div>
+								</article>
+								
+								<% } %>
 					</section>
 					<form class="form" action="" method="POST">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">

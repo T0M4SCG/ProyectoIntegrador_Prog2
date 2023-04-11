@@ -1,5 +1,12 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Quicksand:wght@300;400&display=swap');
+@font-face {
+  font-family: Minecraft;
+  src: url("../fonts/Minecraftchmc-dBlX.ttf");
+}
+
 
 
 /*====== Variables ======*/
@@ -10,7 +17,10 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --base-font-family: 'Roboto', sans-serif;
+  --title-font-family: 'Bebas Neue', cursive;
+  --a-font-family: "Quicksand", sans-serif;
+  --titleForm-font-family: 'IBM Plex Mono', monospace;
 }
 
 
@@ -28,7 +38,7 @@ body {
 
 body {
   font-family: var(--base-font-family);
-  font-weight: 300;
+  font-weight: 400;
   background-color: var(--light-gray);
 }
 
@@ -43,6 +53,7 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  font-family: var(--a-font-family);
 }
 
 figure {
@@ -70,7 +81,19 @@ hr {
   padding: 15px 0;
   background-color: var(--yellow);
 }
-
+.main-header_home-link{
+  width: 100px;
+}
+.divTitulo{
+  width: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Titulo{
+  font-family: Minecraft;
+  font-size: 30px;
+}
 .main-header_home-link,
 .main-header_credit-link {
   display: block;
@@ -169,6 +192,7 @@ hr {
 }
 
 .products-title {
+  font-family: var(--title-font-family);
   font-size: 2.4em;
   font-weight: 400;
   color: var(--gray);
@@ -188,6 +212,12 @@ hr {
 
 .product-box_image {
   border-bottom: 1px solid var(--light-gray);
+  width: 100%;
+  height: 100%;
+}
+.product-box_image img{
+  width: 100%;
+  max-height: 150px;
 }
 
 .product-box_data {
@@ -319,6 +349,7 @@ hr {
 .product-detail-title {
   font-weight: 400;
   font-size: 2.8em;
+  font-family: var(--title-font-family);
 }
 
 .product-detail-description {
@@ -453,6 +484,52 @@ textarea.form-input {
   padding: 15px;
 }
 
+.formulario{
+  box-sizing: border-box;
+  width: 400px;
+  background: #fdfdfd;
+  margin:auto;
+  padding: 30px;
+  margin-top: 100px;
+  border-radius: 4px;
+
+}
+
+.formulario h4{
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.controles{
+  width: 100%;
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid var(--light-blue);
+  font-size: 12px;
+}
+
+.botonFormulario{
+background: var(--light-blue) ;
+  width: 100%;
+  border: none;
+  padding: 12px;
+  color: #fff;
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.formulario p {
+  height: 40px;
+  text-align: center;
+  font-size: 13px;
+}
+.titleForm{
+  font-size: 25px;
+  font-family: var(--titleForm-font-family);
+}
+
 /*====== Profile ======*/
 .info-usuario{
   border-bottom: 1px solid #ccc;
@@ -527,54 +604,4 @@ textarea.form-input {
     width: 95%;
     margin: auto;
   }
-}
-
-.formulario{
-  box-sizing: border-box;
-width: 400px;
-background: #fdfdfd;
-margin:auto;
-padding: 30px;
-margin-top: 100px;
-border-radius: 4px;
-
-}
-
-.formulario h4{
-
-  font-size: 22px;
-  font-weight: lighter;
-}
-
-.formulario h6{
-
-  font-size: 15px;
-  font-weight: lighter;
-}
-
-.controles{
-
-  width: 100%;
-  background: white;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 16px;
-  border: 1px solid var(--light-blue);
-  font-size: 12px;
-}
-
-.botonFormulario{
-background: var(--light-blue) ;
-  width: 100%;
-  border: none;
-  padding: 12px;
-  color: #fff;
-  margin: 16px 0;
-}
-
-.formulario p {
-
-  height: 40px;
-  text-align: center;
-  font-size: 13px;
 }
