@@ -26,7 +26,7 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%= data.img_producto %>" alt="" class="product-detail-img">
+					<img src="<%= data.img_producto %>" alt="<%= data.nombre_producto %>" class="product-detail-img">
 					<p class="product-detail-description"><%= data.descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
@@ -43,8 +43,8 @@
 								
 								<% } %>
 					</section>
-					<form class="form" action="" method="POST">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+					<form class="form" action="http://localhost:3000/products/detalle/<%= data.id %>" method="GET">
+						<input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
 					<hr>

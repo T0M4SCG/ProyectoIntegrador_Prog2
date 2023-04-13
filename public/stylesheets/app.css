@@ -11,7 +11,7 @@
 
 /*====== Variables ======*/
 :root {
-  --yellow: #FFF0C9;
+  --cream: #FFF0C9;
   --dark-blue: #4a25b0;
   --light-blue: #878787;
   --gray: #000000;
@@ -79,7 +79,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: var(--cream);
 }
 .main-header_home-link{
   width: 100px;
@@ -289,7 +289,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: var(--cream);
   padding: 20px 0;
   margin-top: 80px;
 }
