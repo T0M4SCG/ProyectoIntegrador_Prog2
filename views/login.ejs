@@ -24,8 +24,8 @@
 			<!-- Show the "ultimos" products -->
 			<section class="formulario">
 				<h1 class="titleForm">Ingresar</h1>
-				<form action="/" method="get">
-				<input class="controles" type="text" name="name" placeholder="Ingrese su Nombre"> 
+				<form action="/users/login" method="post">
+				<input class="controles" type="email" name="email" placeholder="Ingrese su email"> 
 				<input class="controles" type="password" name="password" placeholder="Ingrese Su contraseña" > 
 				<div style="display: flex; justify-content: space-around; align-items: center;">
 					<p style="height: 100%;">Recordar mi usuario?</p>
@@ -36,6 +36,7 @@
 
 
 	<!-- footer -->
+	
     <%- include("./partials/footer") %>
 	<!-- /footer -->
 </body>

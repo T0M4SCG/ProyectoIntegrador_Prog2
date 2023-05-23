@@ -4,6 +4,7 @@ use Datos;
 
 create table usuarios(
 id int unsigned auto_increment primary key,
+nombre varchar(200) not null,
 email varchar(200) unique not null,
 contrasenia varchar(200) not null,
 fechadenacimiento date,

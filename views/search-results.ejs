@@ -18,9 +18,14 @@
 
 <body>
 	<!-- Header -->
-	<%- include("./partials/header") %>
+	<% if (userLogueado != null) { %>
+		<%- include("./partials/headerLogueado") %>
+		<% } %>
+		<% if(userLogueado == null){ %>
+		<%- include("./partials/header") %>
+		<% } %>
 	<!-- /Header -->
-
+	
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">

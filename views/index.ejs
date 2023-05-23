@@ -16,9 +16,12 @@
 </head>
 <body>
 	<!-- Header -->
+	<% if (userLogueado != null) { %>
+	<%- include("./partials/headerLogueado") %>
+	<% } else { %>
 	<%- include("./partials/header") %>
+	<% } %>
 	<!-- /Header -->
-	
 	<!-- Banner -->
 	<div class="banner">
 		<img src="images/img-home-banner.jpg" alt="Banner de ofertas">

@@ -21,7 +21,7 @@
 	<%- include("./partials/header") %>
 	<!-- /Header -->
 	<!-- Show the "ultimos" products -->
-	<form action="/profile" method="get">    
+	<form action="/users/register" method="POST">    
 		<section class="formulario">
 			<h1 class="titleForm">Tus datos</h1>
 			<h4>Validá tus datos para que nadie pueda ingresar o crear una cuenta a tu nombre.</h4>
@@ -29,6 +29,7 @@
 			<input class="controles" type="text" name="name" placeholder="Ingrese su Nombre"> 
 			<input class="controles" ype="password" name="pass" placeholder="Ingrese su Contraseña" > 
 			<input class="controles" type="number" name="DNI" placeholder="Numero de Documento">
+			<input class="controles" type="file" name="foto" accept=".jpg,.png">
 			<input class="controles" type="date" name="fecha" >  
 			<input class = 'botonFormulario' type="submit" value="Registrar">
 			<p><a href="http://localhost:3000/login">Ya tengo cuenta</a></p>

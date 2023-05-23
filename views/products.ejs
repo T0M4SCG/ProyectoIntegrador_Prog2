@@ -13,8 +13,14 @@
 </head>
 <body>
     <!-- Header -->
-    <%- include("./partials/header") %>
-    <!-- Body -->
+	<% if (userLogueado != null) { %>
+        <%- include("./partials/headerLogueado") %>
+        <% } %>
+        <% if(userLogueado == null){ %>
+        <%- include("./partials/header") %>
+        <% } %>
+        
+        <!-- Body -->
     <div style="display: flex;justify-content: flex-start; flex-wrap: wrap;">
     <% for( let i = 0; i < data.length; i++ ) { %>
         <% let info = data[i] %>
