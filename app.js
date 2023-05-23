@@ -37,6 +37,12 @@ app.use((req,res,next)=>{
     return next()
 })
 
+app.post("/logout",(req,res)=>{
+  req.session.destroy(()=>{
+    res.redirect("/")
+  })
+})
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products',productRouter);
