@@ -1,4 +1,6 @@
 let data = require('../data/data')
+let db = require("../database/models")
+let op = db.Sequelize.Op
 
 let product = {
     products: function (req,res) {
@@ -17,6 +19,14 @@ let product = {
         return res.render("product-add",{data: data.usuarios})
     },
     results:function (req,res) {
+        db.Producto.findAll({
+            where:[{
+                producto: {[op.like]: req.params}  
+            }]
+        })
+        .then((resultados)=>{
+
+        })
         return res.render("search-results")
     }
 }
