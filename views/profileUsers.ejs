@@ -4,18 +4,23 @@
 <%- include("./partials/head") %>
 <body>
 	<!-- Header -->
-	<%- include('./partials/headerLogueado') %>
+	<% if (userLogueado != null) { %>
+		<%- include("./partials/headerLogueado") %>
+		<% } else { %>
+		<%- include("./partials/header") %>
+		<% } %>
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->
+	<% let user = info.dataValues %>
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="<%= userLogueado.foto %>" alt="foto de perfil" class="foto-perfil">
+				<img src="<%= user.fotodeperfil %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%= userLogueado.nombre %> 
+					<h1 class="main-title"><%= user.nombre %> 
 						<a href="http://localhost:3000/profile/edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -24,8 +29,8 @@
 				</div>
 				<div>
 					<ul>
-						<li><h4><%= userLogueado.email %></h4></li>
-						<li>8 productos</li>
+						<li><h4><%= user.email %></h4></li>
+						<li><%= user.products.length %> productos</li>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>
@@ -37,32 +42,45 @@
 
 	<!-- Mis productos -->
 	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Productos</h2>
-			</div>
+
 			<!-- Show mis productos -->
-		<% for( let i = 0; i < 8; i++ ) { %>
+
+		
+
+	<!-- /Mis productos -->
+	<div class="col-12">
+		<h2 class="products-title">Productos</h2>
+	</div>
+	<div class="row">
+	<% if (user.products.length != 0) { %>
+		
+
+		<% for( let i = 0; i < user.products.length; i++ ) { %>
+			<% let producto = user.products[i].dataValues %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="http://localhost:3000/products/detalle/<%= productos[i].id %>">
+					<a href="http://localhost:3000/products/detalle/<%= producto.id %>">
 						<figure class="product-box_image">
-							<img src="<%= productos[i].img_producto%>" alt="<%= productos[i].nombre_producto %>">
+							<img src="<%= producto.imagen%>" alt="<%= producto.imagen %>">
 						</figure>
 						<article class="product-box_data">
-							<h2 class="products-title"><%= productos[i].nombre_producto %></h2>
-							<p><%= productos[i].descripcion %></p>
+							<h2 class="products-title"><%= producto.producto %></h2>
+							<p><%= producto.descripcionProd %></p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
 				</section>
 			</div>
 			<% } %>
+
+
+	<% } else { %>
+		<div class="col-12">
+			<h2 class="products-title">Este usuario no cuenta con productos</h2>
 		</div>
-	</div>
-	<!-- /Mis productos -->
-
-
+	<% } %>
+</div>
+</div>
 	<!-- footer -->
     <%- include("./partials/footer") %>
 	<!-- /footer -->

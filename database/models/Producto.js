@@ -1,4 +1,5 @@
 let sequelize = require("sequelize")
+const data = require("../../data/data")
 
 module.exports = (sequelize,dataTypes)=>{
     let alias = "Producto"
@@ -20,10 +21,14 @@ module.exports = (sequelize,dataTypes)=>{
             type: dataTypes.STRING,
             allowNull: false
         },
+        imagen:{
+            type: dataTypes.STRING,
+            allowNull: false 
+        },
         createdAt:{
             type: dataTypes.DATE
         },
-        updateAt:{
+        updatedAt:{
             type: dataTypes.DATE
         },
         deletedAt:{
@@ -33,8 +38,7 @@ module.exports = (sequelize,dataTypes)=>{
     }
     let config = {
         tableName: "productos",
-        timestamps: true,
-        underscored: true
+        timestamps: true
     }
     let Producto = sequelize.define(alias,cols,config)
     Producto.associate = function(models){

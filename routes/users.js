@@ -8,7 +8,6 @@ router.get("/register",data.formRegister)
 router.post("/register",data.register)
 router.get("/login",data.formLogin)
 router.post("/login",data.login)
-router.get("/profile",data.profile)
-/* router.get("/profile",data.profile) */
+router.get("/profile/:id",data.profile)
 
 module.exports = router;

@@ -224,8 +224,9 @@ hr {
   padding: 15px;
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .product-box_data h2 {

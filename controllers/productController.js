@@ -21,13 +21,24 @@ let product = {
     results:function (req,res) {
         db.Producto.findAll({
             where:[{
-                producto: {[op.like]: req.params}  
-            }]
+                [op.or]:[
+                {producto: {[op.like]: `%${req.query.search}%`}},
+                {descripcionProd:{[op.like]: `%${req.query.search}%`}}]
+            }],
+            order:[['createdAt','DESC']],
+            include:[{association:'products'}]
         })
-        .then((resultados)=>{
+        .then((resultado)=>{
+            let error = null
+            if (resultado.length == 0) {
+                error = "No se encontraron resultados"
+                return res.render("search-results",{error: error})
+            }
+            else{
+                return res.render("search-results",{error: error, resultado:resultado})
+            }  
+        })
 
-        })
-        return res.render("search-results")
     }
 }
 

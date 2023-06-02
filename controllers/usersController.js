@@ -60,7 +60,14 @@ let profiles = {
         .catch((error)=>{console.log(error);})
     },
     profile: (req,res)=>{
-    return res.render("profile",{productos: data.productos})
+        db.Usuario.findOne({
+            where:[{id: req.params.id}],
+            order:[['createdAt','DESC']],
+            include:[{association: "products"}]
+        })
+        .then((resultado)=>{
+            return res.render("profileUsers",{info:resultado})
+        })
     }
 }
 
