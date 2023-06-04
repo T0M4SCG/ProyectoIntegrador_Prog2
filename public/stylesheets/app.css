@@ -1,28 +1,25 @@
 /*====== Fonts ======*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Quicksand:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Quicksand:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Quicksand:wght@300;400&display=swap");
 @font-face {
   font-family: Minecraft;
   src: url("../fonts/Minecraftchmc-dBlX.ttf");
 }
 
-
-
 /*====== Variables ======*/
 :root {
-  --cream: #FFF0C9;
+  --cream: #fff0c9;
   --dark-blue: #4a25b0;
   --light-blue: #878787;
   --gray: #000000;
   --light-gray: #fff8eb;
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif;
-  --title-font-family: 'Bebas Neue', cursive;
+  --base-font-family: "Roboto", sans-serif;
+  --title-font-family: "Bebas Neue", cursive;
   --a-font-family: "Quicksand", sans-serif;
-  --titleForm-font-family: 'IBM Plex Mono', monospace;
+  --titleForm-font-family: "IBM Plex Mono", monospace;
 }
-
 
 /*====== Basics ======*/
 * {
@@ -75,22 +72,21 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
-
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
   background-color: var(--cream);
 }
-.main-header_home-link{
+.main-header_home-link {
   width: 100px;
 }
-.divTitulo{
+.divTitulo {
   width: 180px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.Titulo{
+.Titulo {
   font-family: Minecraft;
   font-size: 30px;
 }
@@ -132,7 +128,6 @@ hr {
   cursor: pointer;
 }
 
-
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
   background-color: var(--dark-blue);
@@ -155,14 +150,14 @@ hr {
   font-size: 1.5em;
 }
 
-.logout{
+.logout {
   background: transparent;
   border: 0px;
   cursor: pointer;
   font-size: 1em;
 }
 
-.logout:hover{
+.logout:hover {
   color: #1259c3;
 }
 
@@ -173,8 +168,6 @@ hr {
   border-bottom: solid 1px var(--gray);
 }
 
-
-
 /*====== Banner ======*/
 .banner {
   background-image: url(/images/img-home-banner.jpg);
@@ -183,7 +176,6 @@ hr {
   background-position: center center;
   height: 100px;
 }
-
 
 /*====== Products ======*/
 .products-wrapper {
@@ -215,7 +207,7 @@ hr {
   width: 100%;
   height: 100%;
 }
-.product-box_image img{
+.product-box_image img {
   width: 100%;
   max-height: 150px;
 }
@@ -271,7 +263,7 @@ hr {
 }
 
 .noproducts {
-  text-align: center
+  text-align: center;
 }
 
 .product-box:hover {
@@ -327,7 +319,6 @@ hr {
   padding: 15px 0;
 }
 
-
 /*====== Product Detail ======*/
 .product-detail {
   background-color: #ffffff;
@@ -363,7 +354,7 @@ hr {
   font-size: 5.5em;
   margin: 10px 0;
 }
-.product-detail .form{
+.product-detail .form {
   padding: 0 15px;
   display: flex;
   flex-direction: column;
@@ -431,27 +422,26 @@ hr {
 .comments {
   padding: 30px 15px 15px 0;
 }
-.comments article{
+.comments article {
   margin-bottom: 7.5px;
   padding-bottom: 7.5px;
   border-bottom: 1px solid #dcdcdc;
   display: flex;
   justify-content: space-between;
 }
-.comments img{
+.comments img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
-.comments .data{
+.comments .data {
   width: 85%;
-  
 }
-.comments p{
+.comments p {
   font-size: 1.5em;
   margin-top: 0;
 }
-.comments .user{
+.comments .user {
   font-size: 1.7em;
 }
 
@@ -474,7 +464,7 @@ hr {
   padding: 0 15px;
 }
 
-.error{
+.error {
   color: rgb(209, 0, 0);
   font-size: 1.4em;
 }
@@ -485,23 +475,22 @@ textarea.form-input {
   padding: 15px;
 }
 
-.formulario{
+.formulario {
   box-sizing: border-box;
   width: 400px;
   background: #fdfdfd;
-  margin:auto;
+  margin: auto;
   padding: 30px;
   margin-top: 100px;
   border-radius: 4px;
-
 }
 
-.formulario h4{
+.formulario h4 {
   font-size: 15px;
   font-weight: lighter;
 }
 
-.controles{
+.controles {
   width: 100%;
   background: white;
   padding: 10px;
@@ -511,8 +500,8 @@ textarea.form-input {
   font-size: 12px;
 }
 
-.botonFormulario{
-background: var(--light-blue) ;
+.botonFormulario {
+  background: var(--light-blue);
   width: 100%;
   border: none;
   padding: 12px;
@@ -526,34 +515,49 @@ background: var(--light-blue) ;
   text-align: center;
   font-size: 13px;
 }
-.titleForm{
+.titleForm {
   font-size: 25px;
   font-family: var(--titleForm-font-family);
 }
 
 /*====== Profile ======*/
-.info-usuario{
+.info-usuario {
   border-bottom: 1px solid #ccc;
   padding-bottom: 30px;
   font-size: 16px;
 }
 
-.foto-perfil{
+.foto-perfil {
   border-radius: 50%;
 }
 
-.main-title{
+.main-title {
   font-size: 25px;
   margin-bottom: 10px;
 }
 
-.btn{
+.btn {
   background-color: #1259c3;
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
 }
 
+.boton-agregar-productos {
+  padding: 10px;
+  background-color: var(--light-blue);
+  width: max-content;
+  border-radius: 15px;
+  font-family: var(--a-font-family);
+  transition: all 0.3s;
+  color: white;
+}
+.boton-agregar-productos a h2{
+  font-weight: normal;
+}
+.boton-agregar-productos:hover{
+  background-color: rgb(75, 75, 74)
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {

@@ -8,6 +8,7 @@
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->
+<% let user = resultado.dataValues %>
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
@@ -25,7 +26,13 @@
 				<div>
 					<ul>
 						<li><h4><%= userLogueado.email %></h4></li>
-						<li>8 productos</li>
+						<% if (user.products.length === 1) { %>
+							<li>1 Producto</li>
+						<% } else if (user.products.length === 0) {%>
+							<li>No tienes ningun producto</li>
+						<% } else { %>
+						<li><%= user.products.length %> Productos</li>
+						<% } %>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>
@@ -38,31 +45,48 @@
 	<!-- Mis productos -->
 	<div class="container products-wrapper">
 		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Productos</h2>
-			</div>
+
 			<!-- Show mis productos -->
-		<% for( let i = 0; i < 8; i++ ) { %>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="http://localhost:3000/products/detalle/<%= productos[i].id %>">
-						<figure class="product-box_image">
-							<img src="<%= productos[i].img_producto%>" alt="<%= productos[i].nombre_producto %>">
-						</figure>
-						<article class="product-box_data">
-							<h2 class="products-title"><%= productos[i].nombre_producto %></h2>
-							<p><%= productos[i].descripcion %></p>
-							<p>Comentarios: 12</p>
-						</article>
-					</a>
-				</section>
-			</div>
+
+			<% if (user.products.length != 0) { %>
+
+				<div class="col-12">
+					<h2 class="products-title">Mis Productos</h2>
+				</div>
+		
+
+				<% for( let i = 0; i < user.products.length; i++ ) { %>
+					<% let producto = user.products[i].dataValues %>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="http://localhost:3000/products/detalle/<%= producto.id %>">
+								<figure class="product-box_image">
+									<img src="<%= producto.imagen%>" alt="<%= producto.imagen %>">
+								</figure>
+								<article class="product-box_data">
+									<h2 class="products-title"><%= producto.producto %></h2>
+									<p><%= producto.descripcionProd %></p>
+									<p>Comentarios: 12</p>
+								</article>
+							</a>
+						</section>
+					</div>
+					<% } %>
+		
+		
+			<% } else { %>
+				<div class="col-12">
+					<h2 class="products-title">Aun no has publicado ningun producto</h2>
+					<div class="boton-agregar-productos">
+						<a href="http://localhost:3000/products/cargar">
+							<h2>Publica ahora</h2>
+						</a>
+					</div>
+				</div>
 			<% } %>
+
 		</div>
 	</div>
-	<!-- /Mis productos -->
-
-
 	<!-- footer -->
     <%- include("./partials/footer") %>
 	<!-- /footer -->

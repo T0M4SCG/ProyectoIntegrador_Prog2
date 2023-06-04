@@ -3,11 +3,18 @@ let db = require("../database/models")
 let data = require("../data/data")
 let bcrypt = require("bcryptjs")
 let session = require("express-session")
-let Swal = require("sweetalert2")
 
 let profiles = {
     index: function (req,res) {
-        return res.render("profile",{data: data.usuarios, productos:data.productos})
+        let id = req.session.idUser
+        db.Usuario.findOne({
+            where:[{id:id}],
+            include:[{association: "products"}],
+            order:[[{model:db.Producto,as:"products"},'createdAt','DESC']]
+        })
+        .then((resultado)=>{
+        return res.render("profile",{resultado:resultado})
+        })
     },
     edit:function (req,res) {
         
@@ -55,6 +62,7 @@ let profiles = {
             else{req.session.nombre = resultado.nombre
             req.session.email = resultado.email
             req.session.foto = resultado.foto
+            req.session.idUser = resultado.id
             res.redirect("/")}
         })
         .catch((error)=>{console.log(error);})
@@ -62,8 +70,8 @@ let profiles = {
     profile: (req,res)=>{
         db.Usuario.findOne({
             where:[{id: req.params.id}],
-            order:[['createdAt','DESC']],
-            include:[{association: "products"}]
+            include:[{association: "products"}],
+            order:[[{model:db.Producto,as:"products"},'createdAt','DESC']]
         })
         .then((resultado)=>{
             return res.render("profileUsers",{info:resultado})

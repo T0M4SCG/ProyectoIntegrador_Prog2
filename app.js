@@ -30,7 +30,8 @@ app.use((req,res,next)=>{
       res.locals.userLogueado = {
         nombre: req.session.nombre,
         foto: req.session.foto,
-        email: req.session.email
+        email: req.session.email,
+        id: req.session.id
       }
     }
     else{res.locals.userLogueado = null}
