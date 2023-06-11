@@ -59,7 +59,8 @@ let profiles = {
             if ((bcrypt.compareSync(req.body.password,resultado.contrasenia)== false)) {
                return res.send("Contraseña incorrecta")
             }
-            else{req.session.nombre = resultado.nombre
+            else{
+            req.session.nombre = resultado.nombre
             req.session.email = resultado.email
             req.session.foto = resultado.foto
             req.session.idUser = resultado.id
@@ -79,4 +80,4 @@ let profiles = {
     }
 }
 
-module.exports = profiles;
+module.exports = profiles;

@@ -14,35 +14,57 @@
 	<!-- product detail -->
 	<% let info = resultado.dataValues %>
 	<div class="container products-wrapper">
-		<div class="d-flex align-items-center">
+		<div class="d-flex align-items-center" style="justify-content:space-between">
 			<h2 class="products-title"><%= info.producto %></h2> 
+			<h2 id="fav" class=""><i id="icono" class='fa-regular fa-heart'></i></i></h2>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%= info.imagen %>" alt="<%= info.producto %>" class="product-detail-img">
+					<img src="<%= info.imagen %>" alt="<%= info.imagen %>" class="product-detail-img">
 					<p class="product-detail-description"><%= info.descripcionProd %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for( let i = 0; i < 5; i++ ) { %>
-						
+						<% for( let i = 0; i < info.commentsProd.length; i++ ) { %>
+						<% let comentarios = info.commentsProd[i].dataValues %>
 							<article>
-								<img src="<%= comentarios[i].img_perfil %>" alt="">
+								<img src="<%= comentarios.comments.dataValues.fotodeperfil %>" alt="<%= comentarios.comments.dataValues.fotodeperfil %>">
 								<div class="data">
 									<p class="user">
-										<strong> <a href="http://localhost:3000/users/profile/"><%= comentarios[i].nombre_usuario %> </a> </strong><%= comentarios[0].texto_comentario %></p>
+										<strong> <a href="/users/profile/<%= comentarios.usuario_id %>"><%= comentarios.comments.dataValues.nombre %></a></strong>:<%= comentarios.comentario %></p>
 									</div>
 								</article>
 								
 								<% } %>
 					</section>
-					<form class="form" action="http://localhost:3000/products/detalle/<%= info.id %>" method="GET">
-						<input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
-					<hr>
+					<% if (userLogueado != null) { %>
+						<form class="form" action="/products/addComment" method="post">
+							<input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
+							<input type="hidden" name="usuario_id" value="<%= userLogueado.id %>">
+							<input type="hidden" name="post_id" value="<%= info.id %>">
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
+						<hr>
+					<% } %>
 				</div>
+			</div>
+		</div>
+		<div style="display: flex; align-items: center; justify-content: space-between;">
+			<h2>Vendedor: <a href="/users/profile/<%= info.usuario_id %>"><%= info.products.dataValues.nombre %></a></h2>
+			<div style="display: flex; width: 150px; justify-content: space-between; margin-top: 10px; align-items: center;">
+			<% if(userLogueado != null && userLogueado.id == info.products.dataValues.id){ %>
+				<form action="/products/editForm" method="post">
+					<input type="submit" value="Editar" style="padding: 15px;background-color: rgb(79, 77, 77);border-radius: 15px;width: max-content;border: 1px solid ;cursor: pointer;">
+					<input type="hidden" name="nombre" value="<%= info.producto %>">
+					<input type="hidden" name="descripcion" value="<%= info.descripcionProd %>">
+					<input type="hidden" name="id" value="<%= info.id %>">
+				</form>
+			<form action="/products/borrar" method="post">
+				<input id="boton" type="submit" value="Borrar" style="padding: 15px;background-color: red;border-radius: 15px;width: max-content;border: 1px solid ;cursor: pointer;"></input>
+				<input type="hidden" name="id" value= "<%= info.id %>">
+			</form>
+			<% } %>
 			</div>
 		</div>
 	</div>

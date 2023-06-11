@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<%- include("./partials/head") %>
+
+<body>
+	<!-- Header -->
+	<%- include("./partials/headerLogueado") %>
+	<!-- /Header -->
+
+			<section class="formulario">
+				<h1 class="titleForm">Editar</h1>
+				<form action="/products/edit" method="post">
+				<input class="controles" type="text" name="nombre" placeholder="<%= info.nombre %>"> 
+				<input class="controles" type="text" name="descripcion" placeholder="<%= info.descripcion %>" > 
+				<input type="file" name="imagen">
+				<input type="hidden" name="id" value="<%= info.id %>">
+				<input class = 'botonFormulario' type="submit" value="Actualizar">
+			</section></form>
+
+	<!-- footer -->
+	
+    <%- include("./partials/footer") %>
+	<!-- /footer -->
+</body>
+
+</html>

@@ -1,7 +1,6 @@
 let data = require('../data/data')
 let db = require("../database/models")
 let op = db.Sequelize.Op
-
 let product = {
     products: function (req,res) {
         return  res.render("products",{data: data.productos, comentarios:data.comentarios})
@@ -9,13 +8,16 @@ let product = {
     detalle: function (req,res) {
         let id = req.params.id
         db.Producto.findOne({
-            where:[{id:id}]
+            where:[{id:id}],
+            include: [{association:"products"},{association:"commentsProd", include:[{association: "comments"}]}],
+            order:[[{model:db.Comentario,as:"commentsProd"},'createdAt','DESC']]
         })
         .then((resultado)=>{
             if(!resultado){
                 return res.send("No existe el producto buscado")
             }
             else{
+                console.log(resultado.dataValues.commentsProd);
                 return res.render('product',{resultado:resultado,comentarios:data.comentarios})
             }
         })
@@ -31,6 +33,49 @@ let product = {
             descripcionProd: req.body.descripcion
         })
         return res.redirect("/")
+    },
+    borrar:(req,res)=>{
+        db.Producto.destroy({
+            where:{
+                id:req.body.id
+            }
+        })
+        return res.redirect('/')
+    },
+    productEditForm:(req,res)=>{
+        return res.render("productEdit",{info:{
+            nombre:req.body.nombre,
+            descripcion:req.body.descripcion,
+            id:req.body.id
+        }})
+    },
+    productEdit:(req,res)=>{
+        if(req.body.nombre != ""){
+            db.Producto.update({
+                producto:req.body.nombre,
+            },{
+                where:{
+                    id: req.body.id
+                }
+            })}
+        if(req.body.descripcion != ""){
+            db.Producto.update({
+                descripcionProd:req.body.descripcion,
+            },{
+                where:{
+                    id: req.body.id
+                }
+            })}
+        if(req.body.imagen != ""){
+            db.Producto.update({
+                imagen: req.body.imagen
+            },{
+                where:{
+                    imagen: req.body.imagen
+                }
+            })
+        }
+        return res.redirect('/')
     },
     results:function (req,res) {
         db.Producto.findAll({
@@ -53,6 +98,14 @@ let product = {
             }  
         })
 
+    },
+    addComment:(req,res)=>{
+        db.Comentario.create({
+            usuario_id: req.body.usuario_id,
+            post_id: req.body.post_id,
+            comentario: req.body.comentario
+        })
+        return res.redirect(`/products/detalle/${req.body.post_id}`)
     }
 }
 
