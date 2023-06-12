@@ -16,7 +16,6 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center" style="justify-content:space-between">
 			<h2 class="products-title"><%= info.producto %></h2> 
-			<h2 id="fav" class=""><i id="icono" class='fa-regular fa-heart'></i></i></h2>
 		</div>
 		<div class="product-detail">
 			<div class="row">
@@ -26,6 +25,10 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
+						<h2 style="font-size: 2em;">Comentarios</h2>
+						<% if (info.commentsProd.length == 0) { %>
+							<h3>No hay comentarios</h3>
+						<% } else {%>
 						<% for( let i = 0; i < info.commentsProd.length; i++ ) { %>
 						<% let comentarios = info.commentsProd[i].dataValues %>
 							<article>
@@ -36,7 +39,7 @@
 									</div>
 								</article>
 								
-								<% } %>
+								<% }} %>
 					</section>
 					<% if (userLogueado != null) { %>
 						<form class="form" action="/products/addComment" method="post">
@@ -46,7 +49,9 @@
 							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 						</form>
 						<hr>
-					<% } %>
+					<% } else { %>
+						<h2>Debe estar logueado para comentar</h2>
+					<% } %>	
 				</div>
 			</div>
 		</div>
@@ -73,6 +78,5 @@
 	<!-- footer -->
 <%- include('./partials/footer')  %>
 	<!-- /footer -->
-
 </body>	
 </html>

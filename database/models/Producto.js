@@ -1,5 +1,4 @@
 let sequelize = require("sequelize")
-const data = require("../../data/data")
 
 module.exports = (sequelize,dataTypes)=>{
     let alias = "Producto"

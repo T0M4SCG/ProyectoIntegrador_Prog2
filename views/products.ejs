@@ -12,19 +12,19 @@
         
         <!-- Body -->
     <div style="display: flex;justify-content: flex-start; flex-wrap: wrap;">
-    <% for( let i = 0; i < data.length; i++ ) { %>
-        <% let info = data[i] %>
+    <% for( let i = 0; i < productos.length; i++ ) { %>
+        <% let info = productos[i].dataValues %>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
                 <a href="http://localhost:3000/products/detalle/<%= info.id %>">
                     <figure class="product-box_image">
-                        <img src="<%= info.img_producto %>" alt="<%= info.nombre_producto %>">
+                        <img src="<%= info.imagen %>" alt="<%= info.producto %>">
                     </figure>
                     <article class="product-box_data">
-                        <h2 class="products-title"><%= info.nombre_producto %></h2>
-                        <p><%= info.descripcion %></p>
-                        <p><%= info.f_carga %></p>
-                        <p>Comentarios: <%= comentarios.length %></p>
+                        <h2 class="products-title"><%= info.producto %></h2>
+                        <p><%= info.descripcionProd %></p>
+                        <p><% info.createdAt %></p>
+                        <p>Comentarios: <%= info.commentsProd.length %></p>
                     </article>
                 </a>
             </section>

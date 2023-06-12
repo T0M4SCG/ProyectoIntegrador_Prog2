@@ -10,12 +10,12 @@
 	<!-- Novedades -->
 	<section class="formulario">
 		<h1 class="titleForm">Modifique sus datos</h1>
-		<form action="http://localhost:3000/profile" method="get">
+		<form action="/users/profile/edit" method="post">
+			<input class="controles" type="text" name="name" placeholder="<%= data.nombre %>"> 
 			<input class="controles" type="email" name="email" placeholder="<%= data.email %>"> 
-			<input class="controles" type="text" name="name" placeholder="<%= data.usuario %>"> 
-			<input class="controles" ype="password" name="pass" placeholder="*******" > 
-			<input class="controles" type="number" name="DNI" placeholder="<%= data.nro_documento %>">
-			<input class="controles" type="date" name="fecha" > 
+			<input class="controles" type="password" name="pass" minlength="4" placeholder="*******" > 
+			<input class="controles" type="number" name="DNI" placeholder="<%= data.dni %>">
+			<input class="controles" type="date" name="fecha">
 			<input class = 'botonFormulario' type="submit" value="Modificar">
 		</form>
 	</section>

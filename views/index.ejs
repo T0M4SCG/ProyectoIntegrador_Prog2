@@ -25,16 +25,17 @@
 			<!-- Show the "ultimos" products -->
 			<div class="row">
 		<% for( let i = 0; i < 4; i++ ) { %>
+			<% let info = productos[i].dataValues %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="http://localhost:3000/products/detalle/<%= productos[i].id %>">
+					<a href="http://localhost:3000/products/detalle/<%= info.id %>">
 						<figure class="product-box_image">
-							<img src="<%= productos[i].img_producto %>" alt="cafetera moulinex">
+							<img src="<%= info.imagen %>" alt="<%= info.producto %>">
 						</figure>
 						<article class="product-box_data">
-							<h2 class="products-title"><%= productos[i].nombre_producto %></h2>
-							<p><%= productos[i].descripcion %></p>
-							<p>Comentarios: 12</p>
+							<h2 class="products-title"><%= info.producto %></h2>
+							<p><%= info.descripcionProd %></p>
+							<p>Comentarios: <%= info.commentsProd.length %></p>
 						</article>
 					</a>
 				</section>
@@ -51,17 +52,18 @@
 				<h2 class="products-title">Más comentados</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for( let i = 4; i < 8; i++ ) { %>
+			<% for( let x = 4; x < 8; x++ ) { %>
+				<% let info2 = productos[x].dataValues %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="http://localhost:3000/products/detalle/<%= productos[i].id %>">
+						<a href="http://localhost:3000/products/detalle/<%= info2.id %>">
 							<figure class="product-box_image">
-								<img src="<%= productos[i].img_producto %>" alt="cafetera moulinex">
+								<img src="<%= info2.imagen %>" alt="<%= info2.producto %>">
 							</figure>
 							<article class="product-box_data">
-								<h2 class="products-title"><%= productos[i].nombre_producto %></h2>
-								<p><%= productos[i].descripcion %></p>
-								<p>Comentarios: 12</p>
+								<h2 class="products-title"><%= info2.producto %></h2>
+								<p><%= info2.descripcionProd %></p>
+								<p>Comentarios: <%= info2.commentsProd.length %></p>
 							</article>
 						</a>
 					</section>

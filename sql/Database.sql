@@ -4,8 +4,8 @@ use Datos;
 
 create table usuarios(
 id int unsigned auto_increment primary key,
-nombre varchar(200) not null,
 email varchar(200) unique not null,
+nombre varchar(200) not null,
 contrasenia varchar(200) not null,
 fechadenacimiento date,
 dni int unsigned not null,
@@ -21,6 +21,8 @@ id int unsigned auto_increment primary key,
 usuario_id INT UNSIGNED NOT NULL,
 producto text not null,
 descripcionProd text not null,
+imagen text not null,
+likes integer default 0,
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 deletedAt timestamp null,

@@ -1,9 +1,14 @@
-let data = require('../data/data')
 let db = require("../database/models")
 let op = db.Sequelize.Op
 let product = {
     products: function (req,res) {
-        return  res.render("products",{data: data.productos, comentarios:data.comentarios})
+        db.Producto.findAll({
+            order:[["createdAt", "DESC"],[{model:db.Comentario,as:"commentsProd"},'createdAt','DESC']],
+            include:[{association:'commentsProd'}]
+          })
+          .then((resultado)=>{
+            return res.render("products", {productos: resultado})
+          })
       },
     detalle: function (req,res) {
         let id = req.params.id
@@ -18,7 +23,7 @@ let product = {
             }
             else{
                 console.log(resultado.dataValues.commentsProd);
-                return res.render('product',{resultado:resultado,comentarios:data.comentarios})
+                return res.render('product',{resultado:resultado})
             }
         })
         },
