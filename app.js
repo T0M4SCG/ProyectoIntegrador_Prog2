@@ -31,7 +31,7 @@ app.use((req,res,next)=>{
         nombre: req.session.nombre,
         foto: req.session.foto,
         email: req.session.email,
-        id: req.session.id
+        id: req.session.idUser
       }
     }
     else{res.locals.userLogueado = null}

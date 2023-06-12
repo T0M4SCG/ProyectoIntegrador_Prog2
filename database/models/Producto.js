@@ -25,6 +25,10 @@ module.exports = (sequelize,dataTypes)=>{
             type: dataTypes.STRING,
             allowNull: false 
         },
+        likes:{
+            type:dataTypes.INTEGER,
+            default: 0
+        },
         createdAt:{
             type: dataTypes.DATE
         },

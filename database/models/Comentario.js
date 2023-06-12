@@ -21,7 +21,7 @@ let cols = {
     createdAt:{
         type: dataTypes.DATE
     },
-    updateAt:{
+    updatedAt:{
         type: dataTypes.DATE
     },
     deletedAt:{
@@ -31,8 +31,7 @@ let cols = {
 }
 let config = {
     tableName: "comentarios",
-    timestamps: true,
-    underscored: true
+    timestamps: true
 
 }
 let Comentario = sequelize.define(alias,cols,config)
