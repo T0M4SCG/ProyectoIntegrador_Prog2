@@ -30,7 +30,8 @@ let cols = {
         allowNull: false
     },
     fotodeperfil:{
-        type: dataTypes.STRING
+        type: dataTypes.STRING,
+        defaultValue: 'https://pbs.twimg.com/media/FkbNNUYXkAMIn3F?format=jpg&name=900x900'
     },
     createdAt:{
         type: dataTypes.DATE

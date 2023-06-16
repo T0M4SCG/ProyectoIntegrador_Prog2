@@ -25,14 +25,24 @@ let profiles = {
             order:[[{model:db.Producto,as:"products"},'createdAt','DESC']]
         })
         .then((resultado)=>{
-        return res.render("profile-edit",{data:resultado.dataValues, error:""})
+        return res.render("profile-edit",{data:resultado.dataValues})
         })
     },
     edit:(req,res)=>{
         let id = req.session.idUser
+        console.log(req.body.foto);
         if (req.body.name != "") {
             db.Usuario.update({
                 nombre: req.body.name
+            },{
+                where:{
+                    id:id
+                }
+            })
+        }
+        if (req.body.foto != "") {
+            db.Usuario.update({
+                fotodeperfil: req.body.foto
             },{
                 where:{
                     id:id

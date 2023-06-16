@@ -9,7 +9,7 @@ nombre varchar(200) not null,
 contrasenia varchar(200) not null,
 fechadenacimiento date,
 dni int unsigned not null,
-fotodeperfil text,
+fotodeperfil text default "https://pbs.twimg.com/media/FkbNNUYXkAMIn3F?format=jpg&name=900x900",
 createdAt timestamp default CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 deletedAt timestamp null
