@@ -118,10 +118,23 @@ let profiles = {
             if ((bcrypt.compareSync(req.body.password,resultado.contrasenia)== false)) {
                return res.send("Contraseña incorrecta")
             }
+            if (req.body.remember == "on") {
+                res.cookie("nombre",resultado.nombre,{maxAge: 1000*60*5})
+                res.cookie("email",resultado.email,{maxAge: 1000*60*5})
+                res.cookie("foto",resultado.fotodeperfil,{maxAge: 1000*60*5})
+                res.cookie("id",resultado.id,{maxAge: 1000*60*5})
+                req.session.nombre = req.cookies.nombre
+                req.session.email = req.cookies.email
+                req.session.foto = req.cookies.fotodeperfil
+                req.session.idUser = req.cookies.id
+                console.log(req.cookies.id);
+                console.log(req.session.idUser);
+                res.redirect("/")
+            }
             else{
             req.session.nombre = resultado.nombre
             req.session.email = resultado.email
-            req.session.foto = resultado.foto
+            req.session.foto = resultado.fotodeperfil
             req.session.idUser = resultado.id
             res.redirect("/")}
         })

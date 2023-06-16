@@ -34,12 +34,17 @@ let product = {
         db.Producto.create({
             usuario_id: req.session.idUser,
             producto: req.body.nombreProducto,
-            imagen: req.body.archivo,
+            imagen: req.body.imagen,
             descripcionProd: req.body.descripcion
         })
         return res.redirect("/")
     },
     borrar:(req,res)=>{
+        db.Comentario.destroy({
+            where:{
+                post_id: req.body.id
+            }
+        })
         db.Producto.destroy({
             where:{
                 id:req.body.id
@@ -51,7 +56,8 @@ let product = {
         return res.render("productEdit",{info:{
             nombre:req.body.nombre,
             descripcion:req.body.descripcion,
-            id:req.body.id
+            id:req.body.id,
+            imagen:req.body.imagen
         }})
     },
     productEdit:(req,res)=>{
@@ -106,7 +112,7 @@ let product = {
     },
     addComment:(req,res)=>{
         db.Comentario.create({
-            usuario_id: req.body.usuario_id,
+            usuario_id: req.session.idUser,
             post_id: req.body.post_id,
             comentario: req.body.comentario
         })

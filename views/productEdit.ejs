@@ -14,7 +14,8 @@
 				<form action="/products/edit" method="post">
 				<input class="controles" type="text" name="nombre" placeholder="<%= info.nombre %>"> 
 				<input class="controles" type="text" name="descripcion" placeholder="<%= info.descripcion %>" > 
-				<input type="file" name="imagen">
+				<input type="text" name="imagen" placeholder="<%= info.imagen %>">
+				<label for="imagen">Url del producto</label>
 				<input type="hidden" name="id" value="<%= info.id %>">
 				<input class = 'botonFormulario' type="submit" value="Actualizar">
 			</section></form>

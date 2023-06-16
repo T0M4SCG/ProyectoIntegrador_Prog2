@@ -6,7 +6,8 @@
 	<!-- Header -->
 	<% if (userLogueado != null) { %>
 	<%- include("./partials/headerLogueado") %>
-	<% } else { %>
+	<% } else { 
+		console.log(userLogueado);%>
 	<%- include("./partials/header") %>
 	<% } %>
 	<!-- /Header -->
